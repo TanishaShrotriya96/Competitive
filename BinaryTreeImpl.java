@@ -1,3 +1,4 @@
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -244,12 +245,56 @@ class BinaryTree {
     if(root == null) return false;
 
     Node toDelete = returnNodeAt(data);
-
-    Node temp = root;
-
+    
+    int d[] = findRightMost(root,0,-1); 
+    
+    toDelete.data = d[2];
+    return true;
   }
+  
+  public Node findRightMost(Node temp,int level, int child) {
+    
+    int[] max_r= new int[]{level,child,temp.data};
+    int[] max_l= new int[]{level,child,temp.data};
+    int[] max= new int[]{level,child,temp.data};
+    
+    if(temp.right!=null) max_r = findRightMost(temp.right,level+1,1);
+    if(temp.left!=null) max_l = findRightMost(temp.left,level+1,0);
+      
+    if(temp.right!=null) {
+      max[0] = max_r[0];
+      max[1] = max_r[1];
+      max[2] = max_r[2];
+    }
+    
+    else {
+      max[0] = max_l[0];
+      max[1] = max_l[1];
+      max[2] = max_l[2];
+    }
+    
+    System.out.println();
+    System.out.print("Node is : "+ temp.data);
+    
+    System.out.print(" max_l = ");
+    for(int i = 0;i<3;i++) {
+     System.out.print(max_l[i]+" ");
+    }
+    
+    System.out.print(" max_r = ");
+    for(int i = 0;i<3;i++) {
+     System.out.print(max_r[i]+" ");
+    }
+    
+    System.out.print("max = ");
+    for(int i = 0;i<3;i++) {
+     System.out.print(max[i]+" ");
+    }
+    
+    return max;
+  }
+  
 }
-
 class Solution {
 
   public static void main(String[] args) {
@@ -313,7 +358,14 @@ class Solution {
     t1.bfsTraversal(t1.root);
     System.out.println();
 
-    t1.insertAt(6,"left",16);
+    t1.insertAt(6,"right",16);
+    t1.bfsTraversal(t1.root);
+    System.out.println();
+    t1.inOrder(t1.root);
+    System.out.println();
+    
+    t1.deleteNode(0);
+    System.out.println();
     t1.bfsTraversal(t1.root);
     System.out.println();
 
