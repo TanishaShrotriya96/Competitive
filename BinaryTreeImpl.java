@@ -239,6 +239,7 @@ class BinaryTree {
     return null;
   }
 
+   //TODO
   // delete by shrinking bottommost right node.
   public boolean deleteNode(int data) {
 
@@ -252,6 +253,7 @@ class BinaryTree {
     return true;
   }
   
+  //TODO
   public Node findRightMost(Node temp,int level, int child) {
     
     int[] max_r= new int[]{level,child,temp.data};

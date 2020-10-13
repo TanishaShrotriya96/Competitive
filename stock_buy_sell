@@ -1,0 +1,36 @@
+
+
+import java.io.*;
+import java.util.*;
+
+
+class Solution {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int t = sc.nextInt();
+    int[] result = new int[t];
+    while(t-- > 0) {
+      int n = sc.nextInt();
+      BufferReader r = new BufferReader(new InputStreamReader(System.in));
+      String[] array = r.readLine.trim.split(" ");
+      int initial =-1,final_ind=-1;
+      String int_results = "";
+      for(int i=array.length-1;i>0;i--){
+        int profit =Integer.parseInt(array[i]) - Integer.parseInt(array[i-1]);
+        if(profit > 0) {
+          if(final_ind == -1) {
+            final_ind = i;
+          }
+          initial = i-1;
+        }
+        
+        if(profit < 0) {
+          int_results.concat("("+initial+","+final_ind+")");
+          initial = -1;
+          
+        }
+        if(profit)
+      }
+    }
+  }
+}
