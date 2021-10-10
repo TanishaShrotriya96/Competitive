@@ -1,4 +1,4 @@
-
+// Goldman Sachs Question Format
 
 import java.io.*;
 import java.util.*;
