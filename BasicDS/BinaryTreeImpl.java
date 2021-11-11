@@ -1,5 +1,9 @@
+package BasicDS;
 
 import java.util.LinkedList;
+import java.util.List;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -14,10 +18,10 @@ class BinaryTree {
 
     Node(int d) {
       data=d;
+      left=right=null;
     }
   }
-
-
+  
   // level-order insertion
   public void insert(Node temp,int data) {
 
@@ -239,65 +243,145 @@ class BinaryTree {
     return null;
   }
 
-   //TODO
-  // delete by shrinking bottommost right node.
-  public boolean deleteNode(int data) {
-
-    if(root == null) return false;
-
-    Node toDelete = returnNodeAt(data);
-    
-    int d[] = findRightMost(root,0,-1); 
-    
-    toDelete.data = d[2];
-    return true;
-  }
+public List<Integer> rightSideView(Node root) {
+  if (root == null) return new ArrayList<Integer>();
   
-  //TODO
-  public Node findRightMost(Node temp,int level, int child) {
+  ArrayDeque<Node> nextLevel = new ArrayDeque<Node>() {{ offer(root); }};
+  ArrayDeque<Node> currLevel = new ArrayDeque<Node>();        
+  List<Integer> rightside = new ArrayList<Integer>();
+  
+  Node node = null;
+  while (!nextLevel.isEmpty()) {
+      // prepare for the next level
+      currLevel = nextLevel.clone();
+      nextLevel.clear();
     
-    int[] max_r= new int[]{level,child,temp.data};
-    int[] max_l= new int[]{level,child,temp.data};
-    int[] max= new int[]{level,child,temp.data};
-    
-    if(temp.right!=null) max_r = findRightMost(temp.right,level+1,1);
-    if(temp.left!=null) max_l = findRightMost(temp.left,level+1,0);
-      
-    if(temp.right!=null) {
-      max[0] = max_r[0];
-      max[1] = max_r[1];
-      max[2] = max_r[2];
-    }
-    
-    else {
-      max[0] = max_l[0];
-      max[1] = max_l[1];
-      max[2] = max_l[2];
-    }
-    
-    System.out.println();
-    System.out.print("Node is : "+ temp.data);
-    
-    System.out.print(" max_l = ");
-    for(int i = 0;i<3;i++) {
-     System.out.print(max_l[i]+" ");
-    }
-    
-    System.out.print(" max_r = ");
-    for(int i = 0;i<3;i++) {
-     System.out.print(max_r[i]+" ");
-    }
-    
-    System.out.print("max = ");
-    for(int i = 0;i<3;i++) {
-     System.out.print(max[i]+" ");
-    }
-    
-    return max;
+      while (! currLevel.isEmpty()) {
+          node = currLevel.poll();
+          // add child nodes of the current level
+          // in the queue for the next level
+          if (node.left != null) 
+              nextLevel.offer(node.left);    
+          if (node.right != null) 
+              nextLevel.offer(node.right);
+      }
+      // The current level is finished.
+      // Its last element is the rightmost one.
+      if (currLevel.isEmpty()) 
+          rightside.add(node.data);    
   }
+  return rightside;
+}
+//BFS: One Queue + Level Size Measurements
+//if (i == levelLength - 1) {
+  //                 rightside.add(node.val);  
+  // for leftside you will check i=0;  
+  //             }
+  // public List<Integer> rightSideView(TreeNode root) {
+  //     if (root == null) return new ArrayList<Integer>();
+      
+  //     ArrayDeque<TreeNode> queue = new ArrayDeque(){{ offer(root); }};
+  //     List<Integer> rightside = new ArrayList();
+      
+  //     while (!queue.isEmpty()) {
+  //         int levelLength = queue.size();
+
+  //         for(int i = 0; i < levelLength; ++i) {
+  //             TreeNode node = queue.poll();
+  //             // if it's the rightmost element
+  //             if (i == levelLength - 1) {
+  //                 rightside.add(node.val);    
+  //             }
+  //             // add child nodes in the queue
+  //             if (node.left != null) {
+  //                 queue.offer(node.left);    
+  //             }
+  //             if (node.right != null) {
+  //                 queue.offer(node.right);
+  //             }
+  //         }
+  //     }
+  //     return rightside;
+  // }
+
+  // BFS: One Queue + Sentinel
+ 
+  // public List<Integer> rightSideView(TreeNode root) {
+  //     if (root == null) return new ArrayList<Integer>();
+      
+  //     Queue<TreeNode> queue = new LinkedList(){{ offer(root); offer(null); }};
+  //     TreeNode prev, curr = root;
+  //     List<Integer> rightside = new ArrayList();
+      
+  //     while (!queue.isEmpty()) {
+  //         prev = curr;
+  //         curr = queue.poll();
+
+  //         while (curr != null) {
+  //             // add child nodes in the queue
+  //             if (curr.left != null) {
+  //                 queue.offer(curr.left);    
+  //             }
+  //             if (curr.right != null) {
+  //                 queue.offer(curr.right);
+  //             }
+              
+  //             prev = curr;
+  //             curr = queue.poll();
+  //         }      
+
+  //         // the current level is finished
+  //         // and prev is its rightmost element
+  //         rightside.add(prev.val);
+  //         // add a sentinel to mark the end
+  //         // of the next level
+  //         if (!queue.isEmpty())
+  //             queue.offer(null);
+  //     }
+  //     return rightside;
+  // }
+
+public List<Integer> leftSideView(Node root) {
+  if (root == null) return new ArrayList<Integer>();
+  
+  // using ArrayDeque to 
+  ArrayDeque<Node> nextLevel = new ArrayDeque<Node>() {/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+{ offer(root); }};
+  ArrayDeque<Node> currLevel = new ArrayDeque<Node>();        
+  List<Integer> rightside = new ArrayList<Integer>();
+  
+  Node node = null;
+  while (!nextLevel.isEmpty()) {
+      // prepare for the next level
+      currLevel = nextLevel.clone();
+      nextLevel.clear();
+      int cnt = 0;
+      while (! currLevel.isEmpty()) {
+          node = currLevel.poll();
+          // used to find leftmost node
+          if(cnt ==0) {
+            rightside.add(node.data);
+            cnt++;
+          }  
+          // add child nodes of the current level
+          // in the queue for the next level
+          if (node.left != null) 
+              nextLevel.offer(node.left);    
+          if (node.right != null) 
+              nextLevel.offer(node.right);
+      }
+    
+  }
+  return rightside;
+}
+
   
 }
-class Solution {
+class Driver{
 
   public static void main(String[] args) {
 
@@ -366,10 +450,17 @@ class Solution {
     t1.inOrder(t1.root);
     System.out.println();
     
-    t1.deleteNode(0);
+    //t1.deleteNode(0);
     System.out.println();
     t1.bfsTraversal(t1.root);
     System.out.println();
+    
+
+    System.out.println("Single Side View");
+    t1.inOrder(t1.root);
+    System.out.println();
+    System.out.println("Right most nodes: "+t1.rightSideView(t1.root));
+    System.out.println("Left most nodes: "+t1.leftSideView(t1.root));
 
   }
 

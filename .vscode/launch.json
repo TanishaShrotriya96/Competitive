@@ -1,0 +1,83 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch BinaryTreeImpl",
+            "request": "launch",
+            "mainClass": "BinaryTreeImpl",
+            "projectName": "Competitive_3ab48795"
+        },
+        {
+            "type": "java",
+            "name": "Launch EggDrop",
+            "request": "launch",
+            "mainClass": "EggDrop",
+            "projectName": "Competitive_3ab48795"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution",
+            "request": "launch",
+            "mainClass": "InterviewQuestions.Solution",
+            "projectName": "Competitive_3ab48795"
+        },
+        {
+            "type": "java",
+            "name": "Launch reverseWordsInString",
+            "request": "launch",
+            "mainClass": "InterviewQuestions.reverseWordsInString",
+            "projectName": "Competitive_3ab48795"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution(1)",
+            "request": "launch",
+            "mainClass": "Solution",
+            "projectName": "Competitive_3ab48795"
+        },
+        {
+            "type": "java",
+            "name": "Launch StackMain",
+            "request": "launch",
+            "mainClass": "StackMain",
+            "projectName": "Competitive_3ab48795"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution(2)",
+            "request": "launch",
+            "mainClass": "StockBuySell.Solution",
+            "projectName": "Competitive_3ab48795"
+        },
+        {
+            "type": "java",
+            "name": "Launch TreeEdgeRetriever",
+            "request": "launch",
+            "mainClass": "TreeEdgeRetriever",
+            "projectName": "Competitive_3ab48795"
+        },
+        {
+            "type": "java",
+            "name": "Launch QuickStart",
+            "request": "launch",
+            "mainClass": "test.QuickStart",
+            "projectName": "Competitive_3ab48795"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution(3)",
+            "request": "launch",
+            "mainClass": "Solution"
+        }
+    ]
+}

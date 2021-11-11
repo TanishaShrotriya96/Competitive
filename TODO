@@ -1,0 +1,13 @@
+https://leetcode.com/problems/sliding-window-maximum/solution/ : How do the left and right arrays cover the second case with overlapping window?
+
+5906. Number of Valid Words in a Sentence
+5907. Next Greater Numerically Balanced Number
+5908. Count Nodes With the Highest Score
+5909. Parallel Courses III
+Intersecting Lines
+LCS
+Is it possible to create a "BFS: One Queue + Sentinel" for finding the leftmost node? - yes insert from right side first!! and write exact same code for sentinel!
+
+Linkedlist cycle detection
+
+// software csci 3081w intro to software design umn

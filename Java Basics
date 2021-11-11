@@ -4,7 +4,7 @@ https://www.w3schools.com/java/java_operators.asp
 
 Note: The Bitwise examples above use 4-bit unsigned examples,
 but Java uses 32-bit signed integers and 64-bit signed long integers.
-Because of this, in Java, ~5 will not return 10. It will return -6.
+Because of this, in Java, ~5(inverse) will not return 10. It will return -6.
 ~00000000000000000000000000000101 will return 11111111111111111111111111111010
 
 In Java, 9 >> 1 will not return 12. It will return 4.
@@ -22,7 +22,6 @@ https://www.w3schools.com/java/java_modifiers.asp
 Encapsulation:
 
 The meaning of Encapsulation, is to make sure that "sensitive" data is hidden from users. To achieve this, you must:
-
 declare class variables/attributes as private
 provide public get and set methods to access and update the value of a private variable
 
@@ -54,6 +53,16 @@ System.out.println( str.compareTo(anotherString) );
 System.out.println( str.compareToIgnoreCase(anotherString) );
 System.out.println( str.compareTo(objStr.toString()));
 
+//iterate over string
+char[] chars = str.toCharArray();
+for (char ch: chars) {
+  System.out.println(ch);
+}
+
+for (int i = 0; i < s.length(); i++) {
+  System.out.println(s.charAt(i));
+}
+
 String str1 = "Hello World Hello Hello";
 System.out.println( str1.replace( 'H','W' ) );
 System.out.println( str1.replaceFirst("He", "Wa") );
@@ -61,3 +70,7 @@ System.out.println( str1.replaceAll("He", "Ha") );
 
 int[] arr = new int[10];
 System.out.println(arr+" "+ arr.length);
+
+//2D arrayList
+List<ArrayList<Integer>> lis = new ArrayList<ArrayList<Integer>>();
+	

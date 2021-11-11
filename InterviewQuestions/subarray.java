@@ -1,3 +1,5 @@
+package InterviewQuestions;
+
 // Given an unsorted array A of size N of non-negative integers, find a continuous sub-array which adds to a given number S.
 
 // Input:
@@ -26,8 +28,6 @@
 
 /*package whatever //do not write package name here */
 
-import java.util.*;
-import java.lang.*;
 import java.io.*;
 
 class Solution {

@@ -1,0 +1,41 @@
+https://algodaily.com/lessons/python-interview-questions-cheat-sheet
+
+Everything in Python is an object. You can think of them as containers that inhabit these objects along with their names. 
+When we execute our program, namespaces are created. 
+The name of each object acts as a key and the object itself as a value. 
+Every function, module, or library has its own unique namespaces. 
+If we import the NumPy library, then upon execution of our program, the Python interpreter will generate NumPy's namespace.
+
+intVariable = 5
+floatVariable = 4.5
+complexVariable = complex(4, 3)
+string1 = "Minahil"
+string2 = 'Minahil123'
+data = True
+data1 = False
+
+print()	It is used to display anything on the console.
+len()	It is used to find the length of a string, list, tuple, dictionary, etc.
+min()	It is used to find the minimum value out of multiple values.
+max()	It is used to find the maximum value out of multiple values.
+type()	It tells about the data type of a variable.
+isinstance()	It confirms if a variable is of xyz type. For example, if 5 is int? This function returns True if yes.
+
+string = "Minahil"
+Flowers_List = ["Tulip", "Jasmine", "Rose", "Lili", "Daisy"]
+Number_Tuple = ("one", "two", "three")
+General_Dictionary = {
+    "key1": "value1",
+    "key2": "value2",
+    "key5": "value3",
+    "key4": "value4",
+}
+
+print("The minimum value of string is", min(string)) //M based on order ord('M') = 77 and ord('a') = 97
+print("The minimum value of list is", min(Flowers_List)) //Daisy
+print("The minimum value of tuple is", min(Number_Tuple)) // one
+print("The max value of dictionary is", max(General_Dictionary)) //key5
+
+print(isinstance(2+3j, complex))
+x = complex(2,3)
+print(x) // 2+3j, it is always j and no other letter.
