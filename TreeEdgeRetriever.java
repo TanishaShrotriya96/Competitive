@@ -1,7 +1,5 @@
 import java.util.*;
-
-import BasicDS.LinkedList;
-
+// Interview question, uses important java concepts of interface and inner class.
 /* Given a binary tree, Retrieve its edges
  * eg            5
  *          2          8

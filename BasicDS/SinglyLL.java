@@ -58,6 +58,7 @@ class LinkedList {
     if(temp!=null && temp.data == key) {
 
       head = temp.next;
+      // don't need to explicitly do temp = null as java has garbage collection
       // remember to add a return.
       return;
     }
@@ -72,7 +73,7 @@ class LinkedList {
     if(temp==null) return;
 
     prev.next=temp.next;
-
+    // don't need to explicitly do temp = null as java has garbage collection
   }
 
   // Delete a node at given position

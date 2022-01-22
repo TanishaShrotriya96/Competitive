@@ -35,7 +35,7 @@ class AsteroidCollision {
     
     public static void main (String Args[]) {
     	int a[] = {-99,10,-11,4,2,3,200,-25,1,24,-66,65,-100,-102,11,-201,-7};
-    	int[] ans = Driver.asteroidCollide(a);
+    	int[] ans = AsteroidCollision.asteroidCollide(a);
     	for (int t = ans.length - 1; t >= 0; --t) {
 	    	System.out.println(ans[t]);
         }
